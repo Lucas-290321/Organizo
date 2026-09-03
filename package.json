@@ -1,0 +1,17 @@
+{
+  "name": "organiza-app",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm run build",
+    "start": "python backend/run.py",
+    "dev": "npm run build && python backend/run.py",
+    "dev:hot": "npx concurrently \"python backend/run.py\" \"cd frontend && npm start\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "sonner": "^2.0.7"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
