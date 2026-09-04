@@ -1,22 +1,32 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm run build && rm -rf ../public && mkdir ../public && cp -R build/. ../public/",
-  "outputDirectory": "public",
-  "routes": [
+  "services": {
+    "frontend": {
+      "root": "frontend",
+      "framework": "create-react-app"
+    },
+    "backend": {
+      "root": "backend"
+    }
+  },
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api"
+      "source": "/api/:path*",
+      "destination": {
+        "service": "backend"
+      }
     },
     {
-      "src": "/ws",
-      "dest": "/api"
+      "source": "/ws",
+      "destination": {
+        "service": "backend"
+      }
     },
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": {
+        "service": "frontend"
+      }
     }
   ]
 }
