@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm run build",
-  "outputDirectory": "frontend/build",
+  "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm run build && mkdir -p ../build && cp -R build/. ../build/",
+  "outputDirectory": "build",
   "rewrites": [
     {
       "source": "/api/:path*",
