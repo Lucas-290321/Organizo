@@ -6,7 +6,8 @@
       "framework": "create-react-app"
     },
     "backend": {
-      "root": "backend"
+      "root": "backend",
+      "entrypoint": "server:app"
     }
   },
   "rewrites": [
